@@ -3,7 +3,7 @@ Ce projet propose une application WordPress connectée à une base de données M
 Les informations sensibles sont protégées à l’aide de **Docker Secrets**, et la configuration est externalisée dans un fichier `.env`.
 
 #### Arborescence du projet 
-docker_wordpress
+docker_wordpress \
 ├── compose.yml \
 ├── .env \
 ├── env.exemple.env \
