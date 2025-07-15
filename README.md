@@ -4,12 +4,12 @@ Les informations sensibles sont protégées à l’aide de **Docker Secrets**, e
 
 #### Arborescence du projet 
 docker_wordpress
-├── compose.yml
-├── .env
-├── env.exemple.env
-├── .gitignore 
-├── secrets/
-│   ├── db_user_password.txt (non versionné)
+├── compose.yml \
+├── .env \
+├── env.exemple.env \
+├── .gitignore \
+├── secrets/ \
+│   ├── db_user_password.txt (non versionné) \
 │   └── db_root_password.txt (non versionné)
 ├── README.md
 
