@@ -1,0 +1,61 @@
+version: '3.8'
+services:
+
+  wordpress_db:
+    image: mysql:8.0
+    container_name: wordpress_db
+    restart: always
+    env_file: .env
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql_user_password
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+    networks:
+      - backend
+    volumes:
+    - db_data:/var/lib/mysql
+    secrets:
+      - mysql_root_password
+      - mysql_user_password
+
+
+  wordpress:
+    depends_on:
+      - wordpress_db
+    image: wordpress:latest
+    container_name: wordpress
+    restart: always
+    env_file: .env
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER_: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - wp_data:/var/www/html
+    secrets:
+      - mysql_user_password
+
+networks:
+  frontend:
+  backend:
+
+secrets:
+  mysql_user_password:
+    file: db_user_password.txt
+  mysql_root_password:
+    file: db_root_password.txt
+
+volumes:
+  db_data:
+  wp_data:
+
+
+
+
