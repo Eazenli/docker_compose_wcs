@@ -19,12 +19,12 @@ MYSQL_USER > Nom de l'utilisateur MySQL utilisé par WordPress \
 WORDPRESS_DB_NAME > Nom de la base utilisée par WordPress (doit être identique à MYSQL_DATABASE) \
 WORDPRESS_DB_USER > Utilisateur utilisé par WordPress (identique à MYSQL_USER) \
 WORDPRESS_DB_HOST > Nom du service MySQL dans le réseau Docker (ex. wordpress_db:3306) \
-WORDPRESS_DB_PASSWORD > Variable utilisée uniquement pour compatibilité ; la vraie valeur est lue via un secret \
+WORDPRESS_DB_PASSWORD > Variable utilisée uniquement pour compatibilité ; la vraie valeur est lue via un secret 
 
 #### Secrets 
 dans le fichier secrets : \
 'votre_mot_de_passe_root' > secrets/db_root_password.txt \
-'votre_mot_de_passe_utilisateur' > secrets/db_user_password.txt \
+'votre_mot_de_passe_utilisateur' > secrets/db_user_password.txt 
 
 
 
